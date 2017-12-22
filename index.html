@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="index.css">
+	<script src="Palette.js"></script>
+</head>
+<body>
+	<header>
+		<ul class="option">
+			<li>保存</li>
+			<li>新建</li>
+			<li>撤销</li>
+			<li>退出</li>
+		</ul>
+		<ul class="shape">
+			<li id="line">直线</li>
+			<li id="pencil">铅笔</li>
+			<li id="dottedLine">虚线</li>
+			<li id="circle">圆形</li>
+			<li id="rectangles">矩形</li>
+			<li id="polygon">多边形</li>
+			<li id="polygonj">多角形</li>
+		</ul>
+		<ul class="style">
+			<li>填充</li>
+			<li>描边</li>
+			<li>填充</li>
+			<li>填充</li>
+		</ul>
+	</header>
+	<section>
+		<canvas width="1200" height="700"></canvas>
+	</section>
+</body>
+</html>
+<script>
+	window.addEventListener('load',function(){
+		let canvas = document.querySelector('canvas');
+		let shape = document.querySelectorAll('.shape>li');
+		let palette = new Palette(canvas);
+		shape.forEach(element=>{
+			element.onclick = function(){
+			let type = this.id;
+			shape.forEach(obj=>{obj.classList.remove('hot')
+		});
+			this.classList.add('hot');
+			if(type == 'polygon' || type == 'polygonj'){
+				let ang = prompt('请输入边数或角度')
+//				canvas[type](ang);
+			}else {
+				palette[type]();
+			}
+		}
+	})
+	})
+</script>
