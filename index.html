@@ -7,52 +7,95 @@
 	<script src="Palette.js"></script>
 </head>
 <body>
-	<header>
-		<ul class="option">
-			<li>保存</li>
-			<li>新建</li>
-			<li>撤销</li>
-			<li>退出</li>
-		</ul>
-		<ul class="shape">
-			<li id="line">直线</li>
-			<li id="pencil">铅笔</li>
-			<li id="dottedLine">虚线</li>
-			<li id="circle">圆形</li>
-			<li id="rectangles">矩形</li>
-			<li id="polygon">多边形</li>
-			<li id="polygonj">多角形</li>
-		</ul>
-		<ul class="style">
-			<li>填充</li>
-			<li>描边</li>
-			<li>填充</li>
-			<li>填充</li>
-		</ul>
-	</header>
-	<section>
-		<canvas width="1200" height="700"></canvas>
-	</section>
+<!-- option选项 保存 撤销 退出 新建
+shape图形 直线 虚线  铅笔 圆形 矩形 多边形 多角形
+style样式/属性	 填充 填充样式 描边样式 -->
+<!-- 	height:calc(100% - 100px) -->
+<div class="top">
+	<ul class="option">
+		<a href="" class="save">
+			保存
+		</a>
+		<li id="che">
+			<i class="iconfont icon-undoIcon"></i>撤销
+		</li>
+		<li>
+			<i class="iconfont icon-tuichu"></i>退出
+		</li>
+		<li class="open">
+			<i class="iconfont icon-xinjian"></i>新建
+		</li>
+	</ul>
+	<ul class="shape">
+		<li id="line">
+			<i class="iconfont icon-line"></i>直线
+		</li>
+		<li id="dash">
+			<i class="iconfont icon-xuxian"></i>虚线
+		</li>
+		<li id="pencil">
+
+			<i class="iconfont icon-qianbi"></i>铅笔
+		</li>
+		<li id="radius">
+
+			<i class="iconfont icon-circle"></i>圆形
+		</li>
+		<li id="rect">
+
+			<i class="iconfont icon-juxing"></i>矩形
+		</li>
+		<li id="polygon">
+			<i class="iconfont icon-duobianxing"></i>多边形
+		</li>
+		<li id="horn">
+			<i class="iconfont icon-wuxing"></i>多角形
+		</li>
+		<li id="eraser">橡皮</li>
+	</ul>
+	<ul class="style">
+
+		<li>
+			<input type="color" id="strokeStyle">
+			<span>描样</span>
+		</li>
+
+		<li>
+			<input type="color" id="fillStyle">
+			<span>填样</span>
+		</li>
+
+		<li id="fill" class="fill">
+			<i class="iconfont icon-tianchong"></i>填
+		</li>
+		<li id="stroke" class="stroke">
+			<i class="iconfont icon-miaobian"></i>描
+		</li>
+		<li id="font">
+			填字
+		</li>
+		<li id="fonts">
+			描字
+		</li>
+		<li id="clips">
+			裁切
+		</li>
+
+
+		<li>
+			<input class="number" type="number" value="1">线宽
+		</li>
+	</ul>
+</div>
+<div class="con">
+	<div class="mask"></div>
+	<div class="eraser1"></div>
+	<div id="clip"></div>
+
+	<!-- <canvas width="1200" height="500px"></canvas> -->
+</div>
 </body>
 </html>
-<script>
-	window.addEventListener('load',function(){
-		let canvas = document.querySelector('canvas');
-		let shape = document.querySelectorAll('.shape>li');
-		let palette = new Palette(canvas);
-		shape.forEach(element=>{
-			element.onclick = function(){
-			let type = this.id;
-			shape.forEach(obj=>{obj.classList.remove('hot')
-		});
-			this.classList.add('hot');
-			if(type == 'polygon' || type == 'polygonj'){
-				let ang = prompt('请输入边数或角度')
-//				canvas[type](ang);
-			}else {
-				palette[type]();
-			}
-		}
-	})
-	})
-</script>
+<script src="function.js"></script>
+<script src="Palette.js"></script>
+<script src="index.js"></script>

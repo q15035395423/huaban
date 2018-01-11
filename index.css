@@ -1,52 +1,114 @@
 *{
     margin: 0;
-    padding:0;
+    padding: 0;
     list-style: none;
+    text-decoration: none;
 }
 html,body{
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
+    background: #dfdfdf;
 }
-header{
-    width:100%;
-    height:20%;
-    padding: 0 5%;
+.top{
+    width: 100%;
+    /* 	height: 20%; */
+    background:#ffffff;
+    padding: 10px 100px;
     box-sizing: border-box;
-    box-shadow: 0 5px 5px rgba(0,0,0,0.2);
     display: flex;
+    justify-content: space-around;
 }
-header ul{
+.option,.shape,.style{
+    padding: 5px 10px;
+    width: 185px;
+    height: 100%;
+    border: 2px solid #B5B7B6;
     display: flex;
     flex-wrap: wrap;
-    padding: 5px 0px 0 10px;;
+    justify-content: space-around;
+    padding: 15px 0 10px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
 }
-header .option{
-    width:105px;
+.shape{
+    width: 450px;
+    padding: 10px;
 }
-header .shape{
-    width:210px;
+.shape > li{
+    padding:8px 15px;
+    margin-right: 5px;
 }
-header .style{
-    width:105px;
+.style{
+    width: 350px;
+    padding: 10px;
 }
-header ul li{
-    width:40px;
-    height:30px;
-    margin: 2px 5px;
-    border:1px solid #ccc;
+.style>li{
+    padding: 0 4px;
     text-align: center;
-    line-height: 30px;
+    line-height: 35px;
+}
+li,a{
+    padding: 8px 10px;
+    border: 2px solid transparent;
     border-radius: 5px;
-}
-.hot{
-    border: 1px solid dodgerblue!important;
-}
-section{
-    width:100%;
-    height:80%;
-    padding-top: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background: #ccc;
+    color: #999;
+    font-weight: 600;
     box-sizing: border-box;
 }
-canvas{
-    border:1px solid #66d9ef;
+.hot{
+    border: 2px solid  #2285f4!important;
+    background: #fff;
+    font-weight: 600;
+    color: #ff6700;
 }
+.con{
+    /* 	width: 100%; */
+    box-sizing: border-box;
+    position: relative;
+    margin:50px 100px  0;
+}
+.mask{
+    width: 1202px;
+    height: 502px;
+    /* height:100%; */
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* background: rgba(0, 0, 0, 0.3); */
+    z-index: 999;
+}
+canvas{
+    border: 1px solid green;
+    background: #fff;
+}
+.iconfont{
+    padding-right: 8px;
+    color: #999;
+}
+.number{
+    width: 50px;
+}
+.eraser1{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50px;
+    left: 100px;
+    background:rgba(0,0,0,0.3);
+    display: none;
+}
+#clip{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px dashed green;
+    display: none;
+}
+/* 封装draw,铅笔不合并,draw里传参,调用内部方法,多边形和多角形需要两个参数 */
+/* 在canvas移动和mask一样,传参mask,把canvas改为mask */
